@@ -15,6 +15,8 @@ class ViewController: NSViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		// Set a color theme:
 		textView.textBackgroundColor = NSColor(calibratedRed: CGFloat(29.0/255.0), green: CGFloat(32.0/255.0), blue: CGFloat(35.0/255.0), alpha: 1)
 		textView.lineNumbersBackgroundColor = NSColor(calibratedRed: CGFloat(54.0/255.0), green: CGFloat(56.0/255.0), blue: CGFloat(58.0/255.0), alpha: 1)
 		textView.lineNumbersForegroundColor = NSColor.gray
