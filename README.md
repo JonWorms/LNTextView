@@ -2,6 +2,8 @@ LNTextView
 ===========
 
 ![Screenshot](https://github.com/JonWorms/LNTextView/blob/master/Screenshot.gif?raw=true)
+### Installing:
+You can either copy LNTextView.swift, LineHighlightingTextView.swift, and LineNumberView.swift into your project, or you can build and embed the LNTextView framework into your project. I release will come soon, at which time you should be able to use [Carthage](https://github.com/Carthage/Carthage) as well.
 ### Example Usage:
 ###### With Storyboard:
 ```Swift
