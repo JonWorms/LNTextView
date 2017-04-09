@@ -25,7 +25,7 @@
 import Cocoa
 
 
-class LineNumberView: NSRulerView {
+public class LineNumberView: NSRulerView {
 	
 	
 	private var fontAttributes: [String: AnyObject] = [:]
@@ -42,7 +42,7 @@ class LineNumberView: NSRulerView {
 	
 	
 	
-	required override init(scrollView: NSScrollView?, orientation: NSRulerOrientation) {
+	required override public init(scrollView: NSScrollView?, orientation: NSRulerOrientation) {
 		super.init(scrollView: scrollView, orientation: orientation)
 		let lineNumberStyle = NSMutableParagraphStyle()
 		lineNumberStyle.alignment = .right
@@ -52,7 +52,7 @@ class LineNumberView: NSRulerView {
         foregroundColor = NSColor(calibratedRed: 0.65, green: 0.65, blue: 0.65, alpha: 1.0)
 	}
 	
-	required init(coder: NSCoder) {
+	required public init(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
@@ -60,10 +60,10 @@ class LineNumberView: NSRulerView {
 	
 	
 	
-	override var isFlipped: Bool { return true }
+	override public var isFlipped: Bool { return true }
 	
 	
-	override func draw(_ dirtyRect: NSRect) {
+	override public func draw(_ dirtyRect: NSRect) {
 		guard let context: CGContext = NSGraphicsContext.current()?.cgContext else { return }
 		
 		// fill the background
@@ -84,7 +84,7 @@ class LineNumberView: NSRulerView {
 	
 	
 	
-	override func drawHashMarksAndLabels(in rect: NSRect) {
+	override public func drawHashMarksAndLabels(in rect: NSRect) {
 		
 		guard let textView: LineHighlightingTextView = self.clientView as? LineHighlightingTextView,
 			  let textContainer: NSTextContainer = textView.textContainer,

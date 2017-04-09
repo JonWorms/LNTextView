@@ -31,7 +31,7 @@ protocol LineHighlightingTextViewDelegate {
 }
 
 
-class LineHighlightingTextView: NSTextView {
+public class LineHighlightingTextView: NSTextView {
 
 	
 	var highlightingDelegate: LineHighlightingTextViewDelegate?
@@ -55,7 +55,7 @@ class LineHighlightingTextView: NSTextView {
         setup()
 	}
 	
-	required init?(coder: NSCoder) {
+	required public init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 
@@ -64,7 +64,7 @@ class LineHighlightingTextView: NSTextView {
     }
 
 	
-	override var drawsBackground: Bool {
+	override public var drawsBackground: Bool {
 		set {} // always return false, we'll draw the background
 		get { return false }
 	}
@@ -80,7 +80,7 @@ class LineHighlightingTextView: NSTextView {
 		return layout.boundingRect(forGlyphRange: text.rangeOfLineAtLocation(selectedRange().location), in: container)
 	}
 	
-	override func draw(_ dirtyRect: NSRect) {
+	override public func draw(_ dirtyRect: NSRect) {
 		guard let context = NSGraphicsContext.current()?.cgContext else { return }
 		
 		context.setFillColor(backgroundColor.cgColor)
@@ -104,7 +104,7 @@ class LineHighlightingTextView: NSTextView {
 	}*/
 
 
-	override func setSelectedRange(_ charRange: NSRange, affinity: NSSelectionAffinity, stillSelecting stillSelectingFlag: Bool) {
+	override public func setSelectedRange(_ charRange: NSRange, affinity: NSSelectionAffinity, stillSelecting stillSelectingFlag: Bool) {
 		super.setSelectedRange(charRange, affinity: affinity, stillSelecting: stillSelectingFlag)
 		needsDisplay = true
 		highlightingDelegate?.selectionNeedsDisplay()

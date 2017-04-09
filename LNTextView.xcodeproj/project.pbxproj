@@ -458,6 +458,7 @@
 				A69C4DAA1E9AE44E00C5FAEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A69C4DC11E9AE48100C5FAEB /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +467,7 @@
 				A69C4DC31E9AE48100C5FAEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

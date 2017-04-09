@@ -27,26 +27,26 @@ import Cocoa
 let testColors: [NSColor] = [.yellow, .blue, .red, .orange, .green, .purple]
 
 
-class LNTextView: NSView, NSTextStorageDelegate, NSTextViewDelegate, LineHighlightingTextViewDelegate {
+public class LNTextView: NSView, NSTextStorageDelegate, NSTextViewDelegate, LineHighlightingTextViewDelegate {
 	
    
 	// MARK: Colors
-	var textBackgroundColor: NSColor {
+	public var textBackgroundColor: NSColor {
 		set { _textView.backgroundColor = newValue }
 		get { return _textView.backgroundColor }
 	}
 	
-	var lineNumbersBackgroundColor: NSColor {
+	public var lineNumbersBackgroundColor: NSColor {
 		set { _lineNumbers.backgroundColor = newValue }
 		get { return _lineNumbers.backgroundColor }
 	}
 	
-	var lineNumbersForegroundColor: NSColor {
+	public var lineNumbersForegroundColor: NSColor {
 		set { _lineNumbers.foregroundColor = newValue }
 		get { return _lineNumbers.foregroundColor }
 	}
 	
-	var currentLineColor: NSColor {
+	public var currentLineColor: NSColor {
 		set {
 			_lineNumbers.selectionColor = newValue
 			_textView.currentLineColor = newValue.withAlphaComponent(0.1)
@@ -54,12 +54,12 @@ class LNTextView: NSView, NSTextStorageDelegate, NSTextViewDelegate, LineHighlig
 		get { return _lineNumbers.selectionColor }
 	}
 	
-    var selectionColor: NSColor {
+    public var selectionColor: NSColor {
         set { _textView.selectedTextAttributes[NSBackgroundColorAttributeName] = newValue }
         get { return _textView.selectedTextAttributes[NSBackgroundColorAttributeName] as! NSColor }
     }
     
-	var textColor: NSColor {
+	public var textColor: NSColor {
 		set {
 			_textView.textColor = newValue
 			_textView.insertionPointColor = newValue
@@ -67,19 +67,19 @@ class LNTextView: NSView, NSTextStorageDelegate, NSTextViewDelegate, LineHighlig
 		get { return _textView.textColor ?? NSColor.black }
 	}
 	
-    var font: NSFont? {
+    public var font: NSFont? {
         set { _textView.font = newValue }
         get { return _textView.font }
     }
     
 
 	
-	var selectedRanges: [NSValue] { return _textView.selectedRanges }
+	public var selectedRanges: [NSValue] { return _textView.selectedRanges }
 
 	
 	private var _textView: LineHighlightingTextView!
 	
-    var storageDelegate: NSTextStorageDelegate?
+    public var storageDelegate: NSTextStorageDelegate?
 	
     
     private var _lineNumbers: LineNumberView!
@@ -92,7 +92,7 @@ class LNTextView: NSView, NSTextStorageDelegate, NSTextViewDelegate, LineHighlig
 		setup()
 	}
 	
-	required init?(coder: NSCoder) {
+	required public init?(coder: NSCoder) {
 		super.init(coder: coder)
 		setup()
 	}
@@ -135,24 +135,24 @@ class LNTextView: NSView, NSTextStorageDelegate, NSTextViewDelegate, LineHighlig
 
 		addSubview(_scrollView)
 
-		font = NSFont(name: "Menlo-Regular", size: 9)
+		font = NSFont(name: "Menlo-Regular", size: 11)
 	}
 	
 	
 	
-	func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
+	public func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
 		_lineNumbers.needsDisplay = true
 		storageDelegate?.textStorage?(textStorage, willProcessEditing: editedMask, range: editedRange, changeInLength: delta)
 	}
 	
 	
 	
-	func textStorage(_ textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
+	public func textStorage(_ textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
 		storageDelegate?.textStorage?(textStorage, didProcessEditing: editedMask, range: editedRange, changeInLength: delta)
 	}
 	
 	
-	override func layout() {
+	override public func layout() {
 		super.layout();
 		_lineNumbers.needsDisplay = true
 	}
