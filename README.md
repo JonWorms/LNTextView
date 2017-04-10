@@ -3,7 +3,7 @@ LNTextView
 
 ![Screenshot](https://github.com/JonWorms/LNTextView/blob/master/Screenshot.gif?raw=true)
 ### Installing:
-You can either copy LNTextView.swift, LineHighlightingTextView.swift, and LineNumberView.swift into your project, or you can build and embed the LNTextView framework into your project. A release will come soon, at which time you should be able to use [Carthage](https://github.com/Carthage/Carthage) as well.
+You can either copy __LNTextView.swift__, __LineHighlightingTextView.swift__, and __LineNumberView.swift__ into your project, or you can build and embed the LNTextView framework into your project. A release will come soon, at which time you should be able to use [Carthage](https://github.com/Carthage/Carthage) as well.
 ### Example Usage:
 ###### With Storyboard:
 ```Swift
@@ -31,10 +31,5 @@ class ViewController: NSViewController {
 		// Do any additional setup after loading the view.
 	}
 
-	override var representedObject: Any? {
-		didSet {
-		// Update the view, if already loaded.
-		}
-	}
 }
 ```
